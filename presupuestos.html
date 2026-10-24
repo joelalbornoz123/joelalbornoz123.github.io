@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estylo Casas</title>
+    <link rel="stylesheet" href="presupuestos-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+        <header class="header">
+            <a class="logo"  href="index.html#inicio" aria-label="Ir al inicio">
+                <!--<img class="logo-icon" src="img/logotest.jpg" alt="Complejo de Departamentos Domóticos">-->
+                <!-- <span>EstyloCasas</span> -->
+                 <p>estylo<b>Casas</b></p>
+            </a>
+
+            <!-- 🚀 NUEVO: Copia y pega esto aquí también para activar el botón en esta página -->
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+            <label for="menu-toggle" class="hamburguesa-btn" aria-label="Abrir menú">
+                    <span class="linea"></span>
+                    <span class="linea"></span>
+                    <span class="linea"></span>
+            </label>
+
+            <nav class="nav">
+                <a href="index.html#inicio">Inicio</a>
+                <a href="index.html#Nosotros">Nosotros</a>
+                <a href="index.html#lineas">Líneas</a>
+                <a href="index.html#Contacto">Contacto</a>
+                <a href="presupuestos.html">Presupuestos</a>
+                <a href="proyectos.html">Proyectos</a>
+
+            </nav>
+
+            <div class="logos-redes-sociales">
+                <a href="https://wa.me/543413113148" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="https://www.instagram.com/estylo_casas/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100070358615556&locale=es_LA" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+    </header>
+
+    <main>
+        <section id="Presupuestos">
+            <div class="presupuesto-contenido">
+                <div class="presupuesto-texto">
+                    <p class="mini-titulo">PLANIFICÁ TU PROYECTO</p>
+                    <h1>Calculá tu presupuesto</h1>
+                    <p class="bajada">Ingresá los metros cuadrados (m²) y seleccioná la línea de construcción.</p>
+                </div>
+
+                <!-- 🚀 NUEVO CONTENEDOR: Agrupa los dos bloques en columnas -->
+                <div class="presupuesto-bloques">
+                    
+                    <!-- TARJETA IZQUIERDA: Formulario -->
+                    <form id="presupuesto-form" class="tarjeta-calculo">
+                        <label for="metros-cuadrados">Metros cuadrados a construir</label>
+                        <input type="number" id="metros-cuadrados" min="1" step="1" placeholder="Ej: 120" required>
+
+                        <label for="linea-construccion">Línea de construcción</label>
+                        <select id="linea-construccion" required>
+                            <option value="" disabled selected>Seleccionar línea</option>
+                            <option value="gris">Obra Gris — $799.000 por m²</option>
+                            <option value="premium">Premium — $1.190.000 por m²</option>
+                            <option value="inteligente">Inteligente — $1.350.000 por m²</option>
+                        </select>
+
+                        <a class="link-lineas" href="index.html#lineas">Ver líneas de construcción →</a>
+
+                        <button type="submit" class="btn-calcular">Calcular <i class="fa-solid fa-calculator"></i></button>
+
+                        <p id="error-presupuesto"></p>
+                    </form>
+
+                    <!-- TARJETA DERECHA: Resultado -->
+                    <div class="tarjeta-resultado">
+                        <!-- Icono de edificio o check del ejemplo -->
+                        <div class="resultado-icon"><i class="fa-solid fa-building"></i></div>
+                        <h3 id="resultado">Acá va a aparecer tu presupuesto</h3>
+                        <p id="datos-presupuesto">Completá los datos para obtener una estimación.</p>
+                        
+                    </div>
+
+                </div>
+
+                <p class="aclaracion">* El resultado es estimativo en base a las líneas de construcción manejadas.</p>
+            </div>    
+        </section>
+
+        <section id="pagos">
+            <div class="pagos-contenido">
+                <div class="pagos-texto">
+                    <p class="mini-titulo">CONSULTÁ COMO FINANCIAR TU PROYECTO</p>
+                    <h1>Planes de financiación</h1>
+                    <p class="bajada">Actualmente contamos con dos modalidades para tu proyecto.</p>
+                </div>
+
+                <div class="planes-cards">
+
+                    <div class="tarjeta-plan">
+                        <span class="tarjeta-numero">01</span>
+                        <h2>Llave en mano</h2>
+                        <p>Consiste en un adelanto del 30% del total para iniciar el proyecto. El monto restante podrá ser abonado en cuotas fijas al finalizar cada etapa de la obra respectivamente.</p>
+                        <button class="btn-lineas">Ver más ↓</button>
+                        <div class="plan-detalle">
+                            <p>→ <b> Método de pago:</b> Adelanto del 30%, el resto en cuotas al finalizar cada etapa.</p>
+                            <p>→ <b> Interés:</b> Ajuste por inflación.</p>
+                            <p>→ <b> Plazos de pago:</b> Al finalizar cada etapa grande de la obra.</p>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-plan">
+                        <span class="tarjeta-numero">02</span>
+                        <h2>Financiado</h2>
+                        <p>Accedé a tu vivienda con un precio en cuotas fijas con tasa de interés mínima, abonadas cada cierta cantidad de meses pactadas en base al proyecto.</p>
+                        <button class="btn-lineas">Ver más ↓</button>
+                        <div class="plan-detalle">
+                            <p>→<b> Método de pago:</b> Cuotas fijas mensuales.</p>
+                            <p>→<b> Interés:</b> Tasa fija mínima.</p>
+                            <p>→ <b> Plazos de pago:</b> Cuotas fijas anuales.</p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+    
+    <footer>
+        <p>Copyright © 2026 - Todos los derechos reservados |  Diseñado por Joel Albornoz</p>
+    </footer>   
+    <script src="presupuestos-calc.js"></script>
+</body>
+</html>

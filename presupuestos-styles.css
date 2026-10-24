@@ -1,0 +1,698 @@
+@import url('https://googleapis.com');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Fuentes */
+    --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-body:    'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    /* Escala tipográfica */
+    --h1:      64px;
+    --xxl:     48px;
+    --x-large: 32px;
+    --large:   24px;
+    --medium:  16px;
+    --small:   12px;
+
+    /* Paleta — idéntica al resto del sitio */
+    /* Paleta */
+    --primary:      rgb(13, 15, 18);
+    --sec:          rgb(20, 23, 28);
+    --body:         rgb(40, 40, 40);
+    --surface-darker:      rgb(27, 29, 33);
+    --surface:      rgb(30, 32, 36);
+    --surface-light:      rgb(40, 42, 46);
+    --surface-high: rgb(48, 51, 57);
+    --text:         #F5F5F5;
+    --text-second:  rgb(180, 180, 185);
+    --details:      rgba(255, 80, 5, 0.937);
+    --details-solid: #ff5005;
+
+    /* Espaciado base */
+    --section-pad: 100px;
+    --radius:      10px;
+    --radius-lg:   18px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    background: var(--sec);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main { flex: 1; }
+
+a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* =========================================================================
+   HEADER / NAV
+   ========================================================================= */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--sec);
+    border-bottom: 1px solid #ff5005;
+    gap: 24px;
+    padding: 0 60px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+}
+
+.header b { color: var(--details-solid); }
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    font-weight: 700;
+    font-size: var(--large);
+    font-family: var(--font-body);
+}
+
+.logo-icon {
+    width: 150px;
+    height: 56px;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    padding: 8px 0;
+}
+
+.nav a {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--text-second);
+    text-decoration: none;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    padding-top: 4px;
+}
+
+.nav a:hover {
+    color: var(--text);
+    border-bottom-color: var(--details-solid);
+}
+
+.nav a.nav-activo {
+    color: var(--text);
+    border-bottom-color: var(--details-solid);
+}
+
+.logos-redes-sociales {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.logos-redes-sociales a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: var(--text-second);
+    font-size: 17px;
+    transition: color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.logos-redes-sociales a:hover {
+    color: var(--text);
+    background: rgba(255, 80, 5, 0.15);
+    transform: translateY(-2px);
+}
+
+.menu-checkbox, .hamburguesa-btn { display: none; }
+
+/* =========================================================================
+   INTRO LABEL (mini-titulo) — igual que proyectos y lineas
+   ========================================================================= */
+.mini-titulo {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--details-solid);
+    margin-bottom: 0;
+}
+
+/* =========================================================================
+   SECCIÓN PRESUPUESTO
+   ========================================================================= */
+#Presupuestos {
+    padding: 64px 40px 64px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 80, 5, 0.25);
+}
+
+
+
+.presupuesto-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Intro */
+.presupuesto-texto {
+    text-align: center;
+}
+
+.presupuesto-texto h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5vw, var(--xxl));
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--text);
+    line-height: 1.1;
+    margin: 12px 0 10px;
+}
+
+.presupuesto-texto .bajada {
+    font-family: var(--font-body);
+    font-size: var(--medium);
+    color: var(--text-second);
+    line-height: 1.7;
+}
+
+/* Bloques calculadora */
+.presupuesto-bloques {
+    display: flex;
+    gap: 28px;
+    width: 100%;
+    max-width: 1000px;
+    align-items: stretch;
+    
+}
+
+.tarjeta-calculo, .tarjeta-resultado {
+    flex: 1;
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    background: var(--sec) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Formulario */
+.tarjeta-calculo label {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    color: var(--details-solid);
+    margin-bottom: 8px;
+}
+
+.tarjeta-calculo input,
+.tarjeta-calculo select {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--surface-darker);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-size: var(--medium);
+    font-family: var(--font-body);
+    margin-bottom: 24px;
+    outline: none;
+    transition: border-color 0.25s, box-shadow 0.25s;
+    color-scheme: dark;
+}
+
+.tarjeta-calculo input:focus,
+.tarjeta-calculo select:focus {
+    border-color: var(--details-solid);
+    box-shadow: 0 0 0 3px rgba(255, 80, 5, 0.12);
+}
+
+
+
+.link-lineas {
+    font-family: var(--font-heading);
+    font-size: var(--medium);
+    gap: 8px;
+    font-weight: 600;
+    color: var(--details-solid);
+    margin-bottom: 28px;
+    align-self: flex-start;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.link-lineas:hover {
+    border-bottom-color: var(--details-solid);
+    transform: translateX(4px);
+}
+
+
+
+
+
+.btn-calcular {
+    width: 100%;
+    background: var(--details-solid);
+    color: var(--text);
+    border: none;
+    padding: 16px;
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    margin-top: auto;
+    transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+    box-shadow: 0 4px 16px rgba(255, 80, 5, 0.3);
+}
+
+.btn-calcular:hover {
+    background: #e04800;
+    transform: translateY(-3px);
+    color: var(--sec) !important;
+    box-shadow: 0 0 12px rgba(255, 80, 5, 0.4);
+}
+
+.btn-presupuesto {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--details-solid);
+    color: var(--text);
+    padding: 15px 30px;
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: var(--radius);
+    transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+    box-shadow: 0 4px 16px rgba(255, 80, 5, 0.3);
+}
+
+
+
+/* Resultado */
+.tarjeta-resultado {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+}
+
+.resultado-icon {
+    font-size: 44px;
+    color: var(--details-solid);
+    opacity: 0.75;
+    margin-bottom: 8px;
+}
+
+.tarjeta-resultado h3 {
+    font-family: var(--font-heading);
+    font-size: var(--large);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+.tarjeta-resultado p {
+    font-family: var(--font-body);
+    font-size: var(--medium);
+    color: var(--text-second);
+    line-height: 1.6;
+}
+
+/* Aclaración */
+.aclaracion {
+    font-family: var(--font-body);
+    font-size: var(--small);
+    color: var(--text-second);
+    text-align: center;
+    max-width: 800px;
+    opacity: 0.7;
+}
+
+/* Error presupuesto */
+#error-presupuesto {
+    font-size: 14px;
+    font-weight: 500;
+    min-height: 20px;
+    margin-top: 8px;
+}
+
+/* =========================================================================
+   SECCIÓN PLANES DE FINANCIACIÓN
+   ========================================================================= */
+#pagos {
+    padding: 64px 40px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.pagos-contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+/* Intro */
+.pagos-texto {
+    text-align: center;
+}
+
+.pagos-texto h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5vw, var(--xxl));
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--text);
+    line-height: 1.1;
+    margin: 12px 0 10px;
+}
+
+.pagos-texto .bajada {
+    font-family: var(--font-body);
+    font-size: var(--medium);
+    color: var(--text-second);
+    line-height: 1.7;
+}
+
+/* =========================================================================
+   CARDS DE PLANES — mismo estilo que lineas
+   ========================================================================= */
+.planes-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    width: 100%;
+    align-items: start;
+}
+
+.tarjeta-plan {
+    padding: 32px 40px 40px;
+    border-top: 2px solid var(--details-solid);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+}
+
+.tarjeta-plan:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 24px;
+    bottom: 24px;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.tarjeta-numero {
+    font-family: var(--font-body);
+    font-size: var(--small);
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--details-solid);
+}
+
+.tarjeta-plan h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(20px, 2vw, 26px);
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    margin: 0;
+}
+
+.tarjeta-plan p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--text-second);
+    line-height: 1.75;
+    margin: 0;
+    flex: 1;
+}
+
+.btn-lineas {
+    align-self: flex-start;
+    background: transparent;
+    color: var(--details-solid);
+    border: 1px solid var(--details-solid);
+    padding: 9px 20px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    margin-top: 24px;
+}
+
+.btn-lineas:hover {
+    background: var(--details-solid);
+    color: var(--text);
+}
+
+
+
+.btn-lineas {
+    align-self: flex-start;
+    background: transparent;
+    color: var(--details-solid);
+    border: 1px solid var(--details-solid);
+    padding: 9px 20px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    margin-top: 8px;
+}
+
+.btn-lineas:hover {
+    background: var(--details-solid);
+    color: var(--surface-darker);
+    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.18);
+}
+
+
+
+.tarjeta-plan b{
+    color: var(--details-solid);
+}
+
+/* =========================================================================
+   EXPANSIÓN DE CARDS — detalle en texto plano
+   ========================================================================= */
+.plan-detalle {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    animation: fadeInDetalle 0.25s ease;
+}
+
+.tarjeta-plan.plan-expandido .plan-detalle {
+    display: flex;
+}
+
+@keyframes fadeInDetalle {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.plan-detalle p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-second);
+    line-height: 1.7;
+    flex: unset !important;
+    margin: 0;
+}
+
+/* =========================================================================
+   FOOTER
+   ========================================================================= */
+footer {
+    background: var(--sec);
+    border-top: 1px solid rgba(255, 80, 5, 0.25);
+    padding: 32px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--small);
+    font-family: var(--font-body);
+    color: var(--text-second);
+    letter-spacing: 0.5px;
+}
+
+/* =========================================================================
+   RESPONSIVE — MÓVIL (≤ 768px)
+   ========================================================================= */
+@media (max-width: 768px) {
+
+    /* HEADER */
+    .header {
+        padding: 0 20px;
+        min-height: 64px;
+    }
+
+    .logos-redes-sociales { display: none; }
+
+    .hamburguesa-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 26px;
+        height: 18px;
+        cursor: pointer;
+        z-index: 2000;
+    }
+
+    .hamburguesa-btn .linea {
+        width: 100%;
+        height: 2px;
+        background: var(--text);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--primary);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 36px;
+        transition: right 0.4s cubic-bezier(0.1, 0.8, 0.3, 1);
+        z-index: 1900;
+        border-left: 2px solid #ff5005;
+    }
+
+    .nav a {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: rgb(180, 180, 185);
+        border-bottom: none;
+        padding: 0;
+    }
+
+    .nav a:hover {
+        color: #ff5005;
+        border-bottom: none;
+    }
+
+    .menu-checkbox:checked ~ .nav { right: 0; }
+
+    .menu-checkbox:checked ~ .hamburguesa-btn .linea:nth-child(1) {
+        transform: translateY(7.75px) rotate(45deg);
+    }
+    .menu-checkbox:checked ~ .hamburguesa-btn .linea:nth-child(2) { opacity: 0; }
+    .menu-checkbox:checked ~ .hamburguesa-btn .linea:nth-child(3) {
+        transform: translateY(-7.75px) rotate(-45deg);
+    }
+
+    /* PRESUPUESTOS */
+    #Presupuestos, #pagos {
+        padding: 48px 16px 60px;
+    }
+
+    .presupuesto-texto h1,
+    .pagos-texto h1 {
+        font-size: clamp(28px, 8vw, 36px) !important;
+    }
+
+    .presupuesto-bloques {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .tarjeta-calculo, .tarjeta-resultado {
+        width: 100%;
+        padding: 28px 20px;
+    }
+
+    .aclaracion { padding: 0 10px; }
+
+    /* PLANES CARDS */
+    .planes-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta-plan {
+        padding: 28px 20px;
+        border-right: none;
+    }
+
+    .tarjeta-plan::after { display: none; }
+
+    /* TABLA */
+    .tabla-pagos {
+        overflow-x: auto;
+        display: block;
+    }
+
+    .tabla-pagos table { min-width: 500px; }
+
+    .tabla-pagos th, .tabla-pagos td {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    footer {
+        padding: 24px 20px;
+        text-align: center;
+    }
+}

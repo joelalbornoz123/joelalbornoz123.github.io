@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estylo Casas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+
+
+<body>
+
+    <header class="header">
+            <a class="logo"  href="#inicio" aria-label="Ir al inicio">
+                <!--<img class="logo-icon" src="img/logotest.jpg" alt="Complejo de Departamentos Domóticos">-->
+                <!-- <span>EstyloCasas</span> -->
+                 <p>estylo<b>Casas</b></p>
+            </a>
+
+                <!-- 🚀 NUEVO: Checkbox oculto y botón de tres líneas -->
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+            <label for="menu-toggle" class="hamburguesa-btn" aria-label="Abrir menú">
+                    <span class="linea"></span>
+                    <span class="linea"></span>
+                    <span class="linea"></span>
+            </label>
+
+            <nav class="nav">
+                <a href="#inicio">Inicio</a>
+                <a href="#Nosotros">Nosotros</a>
+                <a href="#lineas">Líneas</a>
+                <a href="#Contacto">Contacto</a>
+                <a href="presupuestos.html">Presupuestos</a>
+                <a href="proyectos.html">Proyectos</a>
+
+            </nav>
+
+            <div class="logos-redes-sociales">
+
+                
+                <a href="https://wa.me/5493413113148" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="https://www.instagram.com/estylo_casas/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100070358615556&locale=es_LA" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                
+            </div>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <div class="inicio-contenido">
+                <p class="mini-titulo">DISEÑO · CALIDAD · CONFIANZA</p>
+                <h1 >CONSTRUIMOS <br> ESPACIOS <br> PARA TU FUTURO</h1>
+                <p>Somos un estudio arquitectónico dedicado a crear obras funcionales, modernas y adaptadas a las necesidades de cada cliente.</p>
+
+                <a class="btn-presupuesto" href="presupuestos.html">Calcular Presupuesto →</a>
+                <a class="btn-proyectos" href="proyectos.html">Ver proyectos →</a>
+            </div>
+            
+        </section>
+
+        <section id="Nosotros">
+            <div class="nosotros-contenido">
+
+                <div class="nosotros-texto">
+                    <p id="conocer-estudio">Conocé nuestro Estudio</p>
+                    <h1 class="titulo-conocenos">Estylo Casas</h1><br>
+                    <p class="texto-conocenos"> 
+                        Con más de 15 años de experiencia en el sector de la construcción, nos encargamos de transformar tus sueños en realidad con precisión, calidad y compromiso. <br><br>Nos especializamos en ofrecer soluciones integrales en proyectos residenciales. Nuestro equipo de expertos está dedicado a superar tus expectativas, brindando resultados excepcionales en cada etapa del proyecto.
+                    </p>
+                </div>
+
+                <div class="tarjetas">
+                     <div class="tarjeta-tiempo">
+                         <h2>+<span class="contador" data-target="15">0</span></h2>
+                          <p>Años de experiencia y compromiso</p>
+                        </div>
+
+                     <div class="tarjeta-equipo">
+                            <h2>Equipo Comprometido</h2>
+                            <p>Profesionales en cada etapa del proyecto</p>
+                     </div>
+
+                     <div class="tarjeta-precios">
+                        <h2>Precio Competitivo</h2>
+                        <p>Planes de pago únicos dentro del ámbito</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="nosotros-trayectoria">
+                <div class="trayectoria-texto">
+                    <p id="conocer-estudio">Conocé Nuestra Historia</p>
+                    <h1 class="trayectoria-titulo">Trayectoria</h1><br>
+                </div>
+
+                <div class="tarjetas-trayectoria">
+                    <div class="tarjeta-anios">
+                        <h2>+<span class="contador" data-target="15">0</span></h2>
+                        <p>→ Años de experiencia en el sector</p>
+                    </div>
+
+                    <div class="tarjeta-proyectos">
+                        <h2>+<span class="contador" data-target="120">0</span></h2>
+                        <p>→ Proyectos</p>
+                    </div>
+
+                    <div class="tarjeta-obras">
+                        <h2>+<span class="contador" data-target="100">0</span></h2>
+                        <p>→ Obras finalizadas</p>
+                    </div>
+
+                    <div class="tarjeta-clientes">
+                        <h2>+<span class="contador" data-target="100">0</span></h2>
+                        <p>→ Clientes satisfechos</p>
+                    </div>
+                </div>
+                
+                <a class="link-proyectos" href="proyectos.html">Conocé nuestros proyectos →</a>
+            </div>
+        </section>
+
+        <section id="lineas">
+            <div class="lineas-contenido">
+
+                <div class="lineas-texto">
+                    <p class="mini-titulo">LÍNEAS DE CONSTRUCCIÓN</p>
+                    <h1 class="titulo">Diferentes maneras de construir tu hogar</h1>
+                    <p>Actualmente contamos con 3 líneas distintas</p>
+                </div>
+
+                <div class="tarjetas">
+
+                    <!-- OBRA GRIS -->
+                    <div class="tarjeta-linea">
+                        <span class="tarjeta-numero">01</span>
+                        <h2>Obra gris</h2>
+                        <p>Consta de una etapa intermedia del proyecto en la que la estructura principal de la edificación se completa, pero no cuenta con los acabados ni los detalles finales. <br><br> Es la manera más económica de empezar tu proyecto a largo plazo y ya tener una estructura asegurada.</p>
+                        <button class="btn-lineas">Ver más ↓</button>
+                        <div class="linea-detalle">
+                            <p>→ <b> Fundaciones e Infraestructura:</b> Ejecución de cimientos, bases, vigas de encadenado y plateas de hormigón armado, según cálculo estructural. </p>
+                            <p>→ <b>Estructura Portante y Alveolar:</b> Levantamiento de columnas, vigas, losas de entrepiso y muros perimetrales e interiores</p>
+                            <p>→ <b>Cubierta de Techos:</b> Montaje de techados (losa, chapa o teja) con su respectivo aislamiento térmico, acústico e hidrófugo.</p>
+                            <p>→ <b>Revoques y Alisados Base:</b> Aplicación de revoques gruesos (interiores y exteriores) y carpetas de nivelación en pisos, dejando las superficies listas para el acabado final.</p>
+                            <p>→ <b>Instalaciones Básicas:</b> Tendido de cañerías internas para la red de agua, desagües cloacales y pluviales, conductos de gas y la distribución de caños corrugados para el sistema eléctrico y de corrientes débiles (sin cableado).</p>
+                        </div>
+                    </div>
+
+                    <!-- LÍNEA PREMIUM -->
+                    <div class="tarjeta-linea">
+                        <span class="tarjeta-numero">02</span>
+                        <h2>Línea premium</h2>
+                        <p>Consiste en una edificación completa con una estructura finalizada, trámites municipales y acabados de alta calidad. El resultado final es una vivienda finalizada en su totalidad. <br><br> Si la cantidad de m² es mayor a 100 incluye sin costo una piscina de 7x3m. </p>
+                        <button class="btn-lineas">Ver más ↓</button>
+                        <div class="linea-detalle">
+                            <p>→ <b> Gestión Técnica y Administrativa:</b> Incluye la totalidad de los trámites municipales, aprobaciones de planos y gestiones regulatorias necesarias para el inicio legítimo de la obra. </p>
+                            <p>→ <b>Materialidad y Acabados de Alta Calidad:</b> Selección rigurosa de revestimientos, porcelanatos, griferías de diseño y amoblamientos completos.</p>
+                            <p>→ <b>Infraestructura y Estructura Completa:</b> Ejecución bajo normas de ingeniería de toda la estructura portante, mamposterías y cubiertas con aislaciones reforzadas.</p>
+                            <p>→ <b>Revoques y Alisados Base:</b>  Aplicación de revoques gruesos (interiores y exteriores) y carpetas de nivelación en pisos, dejando las superficies listas para el acabado final.</p>
+                            <p>→ <b>Beneficio Piscina sin Costo:</b> Para proyectos que superen los 100 m² de superficie cubierta, se incluye la construcción e instalación sin costo adicional de una piscina de hormigón/revestida de 7x3 metros.</p>
+                        </div>
+                    </div>
+
+                    <!-- LÍNEA INTELIGENTE -->
+                    <div class="tarjeta-linea">
+                        <span class="tarjeta-numero">03</span>
+                        <h2>Línea inteligente</h2>
+                        <p>Es un tipo de vivienda que utiliza tecnología y dispositivos conectados a internet para automatizar, supervisar y controlar de forma remota o local las funciones del hogar, desde el control de luces, termostatos, sistemas de seguridad, entre otros.</p>
+                        <button class="btn-lineas">Ver más ↓</button>
+                        <div class="linea-detalle">
+                             <p>→ <b> Automatización de Sistemas Core (Domótica):</b> Integración centralizada para controlar de forma remota o local los circuitos de iluminación, climatización y persianas a través de dispositivos móviles o comandos de voz. </p>
+                            <p>→ <b>Conectividad de Alta Velocidad Integrada:</b> Despliegue de infraestructura y cableado estructurado diseñado específicamente para soportar dispositivos IoT sin pérdidas de señal en la vivienda.</p>
+                            <p>→ <b>Ecosistema de Seguridad Proactiva:</b> Monitoreo remoto mediante cámaras IP, sensores de movimiento, control de accesos biométrico o digital y alarmas automatizadas gestionables a distancia.</p>
+                            <p>→ <b>Monitoreo y Supervisión en Tiempo Real:</b> Capacidad de auditar el comportamiento de las funciones del hogar, recibir alertas de mantenimiento o detectar anomalías estructurales o de servicios desde cualquier lugar.</p>
+                            <p>→ <b>Eficiencia Energética Optimizada:</b> Gestión inteligente de termostatos y sistemas eléctricos para reducir el consumo innecesario, adaptándose a los hábitos de los usuarios y las condiciones climáticas.</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <a class="link-proyectos link-proyectos-center" href="proyectos.html">Conocé nuestros proyectos →</a>
+        </section>
+
+        <section id="Contacto">
+            <div class="contacto-contenido">
+                <div class="contacto-texto">
+                    <p class="texto-hablemos">Hablemos de tu proyecto</p>
+                    <h1 class="contactanos">Contactanos</h1>
+                    <p class="texto-disponibles">Estamos disponibles para responder tus consultas y coordinar una reunión</p>
+                </div>
+
+                <div class="div-contacto">
+
+                    <!-- COLUMNA 1: Info de contacto -->
+                    <div class="contacto-info">
+                        <div class="contacto-info-intro">
+                            <p class="mini-titulo-contacto">ESTYLO CASAS</p>
+                            <h3>Contanos qué necesitás</h3>
+                            <p>Ya sea que quieras conocer nuestros proyectos o tengas una obra en mente, estamos para escucharte y acompañarte en cada etapa.</p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <a href="https://maps.app.goo.gl/JBQdnxcArQsn1PY76" target="_blank">Rosario, Santa Fe, Argentina</a>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <a href="https://wa.me/5493413113148" target="_blank" rel="noopener noreferrer">+54 9 341 311 3148</a>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <a href="mailto:estylocasas@gmail.com">estylocasas@gmail.com</a>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-brands fa-instagram"></i>
+                            <a href="https://www.instagram.com/estylo_casas/" target="_blank">@estylo_casas</a>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-brands fa-facebook"></i>
+                            <a href="https://www.facebook.com/profile.php?id=100070358615556&locale=es_LA" target="_blank">Estylo Casas</a>
+                        </div>
+                    </div>
+
+                    <!-- COLUMNA 2: Formulario -->
+                    <form class="form-mail">
+                        <div class="campo-grupo">
+                            <label for="nombre">Nombre y Apellido *</label>
+                            <input type="text" id="nombre" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="campo-grupo">
+                            <label for="telefono">Teléfono *</label>
+                            <input type="tel" id="telefono" placeholder="+54 9 341 311 3148" required>
+                        </div>
+                        <div class="campo-grupo">
+                            <label for="mail">Email *</label>
+                            <input type="email" id="mail" placeholder="tu@correo.com" required>
+                        </div>
+                        <div class="campo-grupo">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" rows="5" placeholder="Escribí tu mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+                        <p id="error-presupuesto"></p>
+                    </form>
+
+                    <!-- FILA 2: Mapa ocupa ambas columnas -->
+                    <div class="mapa-estylo">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3349.3909579297806!2d-60.754096187843786!3d-32.91426747349638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f25.1!3m3!1m2!1s0x95b653d34f7cbb1b%3A0x2101cd6aa66c70a1!2sEstylo%20Casas!5e0!3m2!1ses!2sar!4v1792756362731!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+
+<footer>
+    <p>Copyright © 2026 - Todos los derechos reservados |  Diseñado por Joel Albornoz</p>
+</footer>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

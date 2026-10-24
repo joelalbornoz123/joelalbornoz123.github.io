@@ -1,0 +1,525 @@
+@import url('https://googleapis.com');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+
+    /* Fuentes */
+    --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    /* Escala tipográfica */
+    --h1:      64px;
+    --xxl:     48px;
+    --xxxl:    56px;
+    --x-large: 32px;
+    --large:   24px;
+    --medium:  16px;
+    --small:   12px;
+
+    /* Paleta */
+    --primary:      rgb(13, 15, 18);
+    --sec:          rgb(20, 23, 28);
+    --body:         rgb(40, 40, 40);
+    --surface-darker:      rgb(27, 29, 33);
+    --surface:      rgb(30, 32, 36);
+    --surface-light:      rgb(40, 42, 46);
+    --surface-high: rgb(48, 51, 57);
+    --text:         #F5F5F5;
+    --text-second:  rgb(180, 180, 185);
+    --details:      rgba(255, 80, 5, 0.937);
+    --details-solid: #ff5005;
+
+    /* Espaciado base */
+    --section-pad: 100px;
+    --radius:      10px;
+    --radius-lg:   18px;
+}
+
+
+body{
+    font-family: var(--font-body);
+    background: var(--surface);
+    color: var(--text);
+}
+
+a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+
+/* =========================================================================
+   HEADER / NAV
+   ========================================================================= */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--sec);
+    border-bottom: 1px solid #ff5005;
+    gap: 24px;
+    padding: 0 60px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+}
+
+.header b{
+    color: var(--details-solid);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    font-weight: 700;
+    font-size: var(--large);
+    font-family: var(--font-body);
+}
+
+.logo-icon {
+    width: 150px;
+    height: 56px;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    padding: 8px 0;
+}
+
+.nav a {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: rgb(180, 180, 185);
+    text-decoration: none;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    padding-top: 4px;
+}
+
+.nav a:hover {
+    color: #F5F5F5;
+    border-bottom-color: #ff5005;
+}
+
+.nav a.nav-activo {
+    color: #F5F5F5;
+    border-bottom-color: #ff5005;
+}
+
+.logos-redes-sociales {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.logos-redes-sociales a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: rgb(180, 180, 185);
+    font-size: 17px;
+    transition: color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.logos-redes-sociales a:hover {
+    color: #F5F5F5;
+    background: rgba(255, 80, 5, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Hamburguesa — oculto en desktop */
+.menu-checkbox, .hamburguesa-btn {
+    display: none;
+}
+
+
+/* =========================================================================
+   INTRO — título de página
+   ========================================================================= */
+.proyectos-texto {
+    text-align: center;
+    padding: 64px 20px 40px;
+}
+
+.proyectos-texto h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5vw, var(--xxl));
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.1;
+}
+
+.proyectos-texto p {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--details-solid);
+    margin-bottom: 0;
+}
+
+/* =========================================================================
+   GALERÍA — grid de tarjetas
+   ========================================================================= */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+    gap: 28px;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto 80px;
+    padding: 0 40px;
+}
+
+/* Tarjeta */
+.project-card {
+    position: relative;
+    height: 360px;
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Capa de texto sobre la imagen */
+.project-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 28px 24px 20px;
+    background: linear-gradient(to top, rgba(13, 15, 18, 0.97) 25%, rgba(13, 15, 18, 0.45) 65%, rgba(0,0,0,0));
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: transform 0.3s ease;
+}
+
+.project-info h3 {
+    color: var(--text);
+    font-size: var(--large);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin: 0;
+}
+
+.project-info p {
+    color: var(--text-second);
+    font-size: 14px;
+    font-family: var(--font-body);
+    margin: 0;
+}
+
+.btn-ver-mas {
+    font-size: 11px;
+    font-weight: 700;
+    font-family: var(--font-body);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-second);
+    margin-top: 10px;
+    transition: color 0.2s;
+}
+
+/* Hover */
+.project-card:hover {
+    box-shadow: 0 0 0 1px rgba(255, 80, 5, 0.4), 0 16px 40px rgba(0, 0, 0, 0.5);
+    transform: translateY(-3px);
+    border-bottom: 3px solid var(--details-solid);
+}
+
+.project-card:hover img {
+    transform: scale(1.06);
+}
+
+.project-card:hover .btn-ver-mas {
+    color: var(--details-solid);
+}
+
+
+/* =========================================================================
+   MODAL — visor de imágenes
+   ========================================================================= */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(13, 15, 18, 0.96);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal.modal-activo {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 85%;
+    max-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Wrapper imagen + caption */
+.modal-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    max-width: 90vw;
+}
+
+/* Caption */
+.modal-caption {
+    color: var(--text-second);
+    font-size: 14px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    text-align: center;
+    background: rgba(13, 15, 18, 0.75);
+    padding: 8px 22px;
+    border-radius: var(--radius);
+    letter-spacing: 0.3px;
+    max-width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+#modal-img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+    border-radius: var(--radius);
+}
+
+/* Botones de navegación */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(30, 32, 36, 0.75);
+    color: var(--text);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    z-index: 2100;
+}
+
+.nav-btn:hover {
+    background: var(--details-solid);
+    border-color: var(--details-solid);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.prev-btn { left: -70px; }
+.next-btn { right: -70px; }
+
+/* Botón cerrar */
+.close-btn {
+    position: absolute;
+    top: 28px;
+    right: 36px;
+    color: var(--text-second);
+    font-size: 40px;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+    z-index: 2100;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: var(--details-solid);
+    transform: rotate(90deg);
+}
+
+/* --- RESPONSIVE: Flechas dentro de la pantalla en celulares --- */
+@media (max-width: 768px) {
+      
+    /* HEADER Y MENÚ HAMBURGUESA COMPACTO */
+    .header {
+        padding: 0 20px;
+        min-height: 64px;
+    }
+
+    .logos-redes-sociales {
+        display: none;
+    }
+
+    .hamburguesa-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 26px;
+        height: 18px;
+        cursor: pointer;
+        z-index: 2000;
+    }
+
+    .hamburguesa-btn .linea {
+        width: 100%;
+        height: 2px;
+        background-color: var(--text);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--primary);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 36px;
+        transition: right 0.4s cubic-bezier(0.1, 0.8, 0.3, 1);
+        z-index: 1900;
+        border-left: 2px solid #ff5005;
+    }
+
+    .nav a {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: rgb(180, 180, 185);
+        border-bottom: none;
+        padding: 0;
+    }
+
+    .nav a:hover {
+        color: #ff5005;
+        border-bottom: none;
+    }
+
+    .menu-checkbox:checked ~ .nav {
+        right: 0;
+    }
+
+    .menu-checkbox:checked ~ .hamburguesa-btn .linea:nth-child(1) {
+        transform: translateY(7.75px) rotate(45deg);
+    }
+
+    .menu-checkbox:checked ~ .hamburguesa-btn .linea:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-checkbox:checked ~ .hamburguesa-btn .linea:nth-child(3) {
+        transform: translateY(-7.75px) rotate(-45deg);
+    }
+    
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
+    .close-btn { top: 20px; right: 20px; font-size: 36px; }
+    .modal-content { max-width: 95%; }
+}
+
+
+
+/* FOOTER */
+footer {
+    background: var(--sec);
+    border-top: 1px solid rgba(255, 80, 5, 0.25);
+    padding: 32px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--small);
+    color: rgb(180, 180, 185);
+    letter-spacing: 0.5px;
+}
+
+/* =========================================================================
+   RESPONSIVE — móvil (≤ 768px)
+   ========================================================================= */
+@media (max-width: 768px) {
+    .project-grid {
+        gap: 16px;
+        padding: 0 12px;
+        margin-bottom: 48px;
+    }
+
+    .proyectos-texto {
+        padding: 48px 16px 28px;
+    }
+
+    .modal-content {
+        max-width: 95vw;
+    }
+
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        background: rgba(13, 15, 18, 0.75);
+    }
+
+    .prev-btn { left: 8px; }
+    .next-btn { right: 8px; }
+
+    .close-btn {
+        top: 16px;
+        right: 20px;
+        font-size: 34px;
+    }
+}
+
+/* Animación suave de aparición */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
